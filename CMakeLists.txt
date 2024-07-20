@@ -6,14 +6,13 @@ add_subdirectory(vendor/glfw)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_library("${CMAKE_PROJECT_NAME}")
+add_library(Framer)
 
 file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
-target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC GLFW_INCLUDE_NONE=1)
-target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC RESOURCES_PATH="${CMAKE_CURRENT_SOURCE_DIR}/resources/")
+target_compile_definitions(Framer PRIVATE GLFW_INCLUDE_NONE=1)
 
-target_sources("${CMAKE_PROJECT_NAME}" PRIVATE ${MY_SOURCES} )
-target_include_directories("${CMAKE_PROJECT_NAME}" PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include/")
+target_sources(Framer PRIVATE ${MY_SOURCES} )
+target_include_directories(Framer PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include/")
 
-target_link_libraries("${CMAKE_PROJECT_NAME}" PRIVATE glad glfw)
+target_link_libraries(Framer PRIVATE glad glfw)
