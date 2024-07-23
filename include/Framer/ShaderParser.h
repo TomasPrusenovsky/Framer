@@ -15,7 +15,7 @@ namespace fr
 
     enum class ShaderType
     {
-        VERTEX, FRAGMENT
+        VERTEX, FRAGMENT, COMPUTE
     };
 
     struct ShaderSource

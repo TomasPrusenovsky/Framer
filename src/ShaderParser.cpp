@@ -29,10 +29,10 @@ namespace fr
     bool ShaderParser::GetContents(const std::string& path, std::string& buffer)
     {
         std::ifstream file{ path };
-        std::string line;
 
         if (file)
         {
+            std::string line;
             while (std::getline(file, line))
             {
                 if (line.find("uniform") != std::string::npos)

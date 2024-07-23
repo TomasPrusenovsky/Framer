@@ -22,6 +22,10 @@ namespace fr
 		glUseProgram(0);
 	}
 
+	void Shader::uni1i(const std::string &name, int data) {
+		glUniform1i(GetUniformLocation(name), data);
+	}
+
 	void Shader::uni1f(const std::string& name, float data1)
 	{
 		glUniform1f(GetUniformLocation(name), data1);

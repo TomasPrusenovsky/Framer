@@ -16,6 +16,7 @@ namespace fr {
         void SetVSync(bool enabled);
         void ShowFPS();
         void SetTickDelay(double delay) { m_Tick.SetDelay(delay); }
+        GLFWwindow* Ptr() {return m_Window;}
 
         bool IsTick() const { return m_Tick.tick; }
         bool IsRunning() const { return m_Settings.shouldRun; }

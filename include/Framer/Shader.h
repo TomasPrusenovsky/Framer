@@ -13,6 +13,7 @@ namespace fr
         void Unbind();
 
         //unifom upload
+        void uni1i(const std::string& name, int data);
         void uni1f(const std::string& name, float data);
         void uni2f(const std::string& name, float data1, float data2);
         void uni3f(const std::string& name, float data1, float data2, float data3);
