@@ -22,7 +22,7 @@ namespace fr {
         bool IsRunning() const { return m_Settings.shouldRun; }
         uint32_t Width() const { return m_Settings.width; }
         uint32_t Height() const { return m_Settings.height; }
-        float AspectRatio() const { return (float)Height() / (float)Width(); }
+        float AspectRatio() const { return (float)Width() / (float)Height(); }
         float DeltaTime() const { return static_cast<float>(m_Time.delta); }
         float FPS() const { return m_FPS; }
         float MouseX() const { return m_Settings.mouse.posX; }

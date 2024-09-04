@@ -28,6 +28,10 @@ namespace fr {
 		float width = m_window_cr.Width();
     	float height = m_window_cr.Height();
 
+    	if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
+    		std::cout << width << ", " << height << std::endl;
+    	}
+
 		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		{
 			m_Position += m_Data.speed * m_Orientation;
