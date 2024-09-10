@@ -22,11 +22,12 @@ namespace fr {
             float nearPlane = 0.01f;
             float farPlane = 1000.0f;
             float speed = 0.1f;
-            float sensitivity = 100.0f;
+            float sensitivity = 90.0f;
         };
 
         Data m_Data;
         bool firstClick = true;
+        bool shouldRotate = false;
 
         // Stores the main vectors of the camera
         glm::vec3 m_Position = glm::vec3(0.0f);

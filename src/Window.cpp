@@ -89,7 +89,9 @@ void Window::CreateWindow()
 	SetVSync(true);
 	glfwSetWindowUserPointer(m_Window, &m_Settings);
 
-	assert(gladLoadGL());
+    int success = gladLoadGL();
+    assert(success);
+
 }
 
 void Window::SetCallBacks()

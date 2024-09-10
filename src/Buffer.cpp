@@ -2,6 +2,9 @@
 
 namespace fr
 {
+    Buffer::Buffer() {
+        glCreateBuffers(1, &m_ID);
+    }
     Buffer::Buffer(const GLvoid* data, GLsizeiptr size, GLenum usage)
     {
         glCreateBuffers(1, &m_ID);
