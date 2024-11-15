@@ -11,7 +11,6 @@ namespace fr {
         Window(uint32_t width, uint32_t height, const char* title);
         ~Window();
 
-        void Update();
         void OnUpdate();
         void SetVSync(bool enabled);
         void ShowFPS();
@@ -71,6 +70,7 @@ namespace fr {
         double m_FPS = 0;
 
         void Init();
+        void Update();
         void CreateWindow();
         void SetCallBacks();
         void SetTitle(const std::string& title);
