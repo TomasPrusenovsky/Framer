@@ -21,7 +21,9 @@ namespace fr {
             float fov;
             float nearPlane = 0.01f;
             float farPlane = 1000.0f;
-            float speed = 0.1f;
+            float speed = 2.0f;
+            float speedDefault = 2.0f;
+            float speedSprint = 3.0f;
             float sensitivity = 90.0f;
         };
 

@@ -8,6 +8,7 @@ namespace fr
     {
     public:
         VAO();
+        ~VAO();
 
         void Bind();
         void Unbind();

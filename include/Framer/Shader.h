@@ -18,7 +18,7 @@ namespace fr
         void uni2f(const std::string& name, float data1, float data2);
         void uni3f(const std::string& name, float data1, float data2, float data3);
         void uni4f(const std::string& name, float data1, float data2, float data3, float data4);
-        void uni4mat(const std::string& name, float* val_ptr);
+        void uni4mat(const std::string& name, const float* val_ptr);
 
     private:
         void CreateProgram(const char* vertSource, const char* fragSource);

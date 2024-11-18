@@ -46,7 +46,7 @@ namespace fr
 		glUniform4f(GetUniformLocation(name), data1, data2, data3, data4);
 	}
 
-	void Shader::uni4mat(const std::string& name, float* val_ptr)
+	void Shader::uni4mat(const std::string& name, const float* val_ptr)
 	{
 		glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, val_ptr);
 	}

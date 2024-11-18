@@ -7,6 +7,7 @@ namespace fr
     {
     public:
         Buffer();
+        ~Buffer();
         Buffer(const GLvoid* data, GLsizeiptr size, GLenum usage);
 
         // The size is in bytes

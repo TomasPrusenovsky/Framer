@@ -24,41 +24,44 @@ namespace fr {
 
     void Camera::OnUpdate() {
         	// Handles key inputs
+
+    	float deltaTime = m_window_cr.DeltaTime();
+
     	auto window = m_window_cr.Ptr();
 		float width = m_window_cr.Width();
     	float height = m_window_cr.Height();
 
 		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		{
-			m_Position += m_Data.speed * m_Orientation;
+			m_Position += m_Data.speed * m_Orientation * deltaTime;
 		}
 		if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
 		{
-			m_Position += m_Data.speed * -glm::normalize(glm::cross(m_Orientation, m_Up));
+			m_Position += m_Data.speed * -glm::normalize(glm::cross(m_Orientation, m_Up)) * deltaTime;
 		}
 		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 		{
-			m_Position += m_Data.speed * -m_Orientation;
+			m_Position += m_Data.speed * -m_Orientation * deltaTime;
 		}
 		if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		{
-			m_Position += m_Data.speed * glm::normalize(glm::cross(m_Orientation, m_Up));
+			m_Position += m_Data.speed * glm::normalize(glm::cross(m_Orientation, m_Up)) * deltaTime;
 		}
 		if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
 		{
-			m_Position += m_Data.speed * m_Up;
+			m_Position += m_Data.speed * m_Up * deltaTime;
 		}
 		if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
 		{
-			m_Position += m_Data.speed * -m_Up;
+			m_Position += m_Data.speed * -m_Up * deltaTime;
 		}
 		if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 		{
-			m_Data.speed = 0.4f;
+			m_Data.speed = m_Data.speedSprint;
 		}
 		else if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE)
 		{
-			m_Data.speed = 0.1f;
+			m_Data.speed = m_Data.speedDefault;
 		}
 
 
@@ -94,7 +97,7 @@ namespace fr {
             // Calculates upcoming vertical change in the m_Orientation
             glm::vec3 newm_Orientation = glm::rotate(m_Orientation, glm::radians(-rotX), glm::normalize(glm::cross(m_Orientation, m_Up)));
 
-            // Decides whether or not the next vertical m_Orientation is legal or not
+        // Decides whether or not the next vertical m_Orientation is legal or not
             if (abs(glm::angle(newm_Orientation, m_Up) - glm::radians(90.0f)) <= glm::radians(85.0f))
             {
                 m_Orientation = newm_Orientation;

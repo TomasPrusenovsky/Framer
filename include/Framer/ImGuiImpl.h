@@ -13,6 +13,5 @@ namespace fr {
         void EndFrame(GLFWwindow* window);
 
         friend class Window;
-
     };
 }
