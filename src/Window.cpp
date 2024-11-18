@@ -20,9 +20,9 @@ Window::~Window()
 	glfwTerminate();
 }
 
-void Window::BegimFrame() {
-	m_ImGuiImpl.BeginFrame([]() {
-		glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
+void Window::BegimFrame(float r, float g, float b, float a) {
+	m_ImGuiImpl.BeginFrame([r, g, b, a]() {
+		glClearColor(r, g, b, a);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	});
 }
