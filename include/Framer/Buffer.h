@@ -8,6 +8,8 @@ namespace fr
     public:
         Buffer();
         Buffer(const GLvoid* data, GLsizeiptr size, GLenum usage);
+
+        // The size is in bytes
         Buffer(const GLvoid* data, GLsizeiptr size);
 
         [[nodiscard]] GLuint ID() const { return m_ID; }

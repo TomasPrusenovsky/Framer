@@ -10,12 +10,21 @@ Window::Window(uint32_t width, uint32_t height, const char* title) :
 	Init();
 	CreateWindow();
 	SetCallBacks();
+
+	m_ImGuiImpl.Init(m_Window);
 }
 
 Window::~Window()
 {
 	glfwDestroyWindow(m_Window);
 	glfwTerminate();
+}
+
+void Window::BegimFrame() {
+	m_ImGuiImpl.BeginFrame([]() {
+		glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	});
 }
 
 void Window::Update()
@@ -33,13 +42,14 @@ void Window::Update()
 		m_Tick.tick = true;
 	}
 
-	glfwPollEvents();
 }
 
-void Window::OnUpdate()
+void Window::EndFrame()
 {
+	m_ImGuiImpl.EndFrame(m_Window);
 	glfwSwapBuffers(m_Window);
 	Update();
+	glfwPollEvents();
 }
 
 void Window::SetVSync(bool enabled)

@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <glm/glm.hpp>
+#include "ImGuiImpl.h"
 
 
 namespace fr {
@@ -11,7 +12,8 @@ namespace fr {
         Window(uint32_t width, uint32_t height, const char* title);
         ~Window();
 
-        void OnUpdate();
+        void BegimFrame();
+        void EndFrame();
         void SetVSync(bool enabled);
         void ShowFPS();
         void SetTickDelay(double delay) { m_Tick.SetDelay(delay); }
@@ -75,6 +77,8 @@ namespace fr {
         void SetCallBacks();
         void SetTitle(const std::string& title);
         GLFWwindow* m_Window = nullptr;
+
+        ImGuiImpl m_ImGuiImpl;
 
     };
 }
